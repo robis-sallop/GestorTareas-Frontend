@@ -26,7 +26,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import axios from 'axios'
+//import axios from 'axios'
+import api from '../services/api'
 
 const titulo = ref('')
 const detalle = ref('')
@@ -41,7 +42,7 @@ const crearTarea = async () => {
   }
   console.log('Nueva tarea:', JSON.stringify(nuevaTarea, null, 2));
   try {
-    await axios.post('http://localhost:3000/api/tareas', nuevaTarea)
+    await api.post('http://localhost:3000/api/tareas', nuevaTarea)
     mensaje.value = 'Tarea creada exitosamente.'
     titulo.value = ''
     detalle.value = ''

@@ -19,7 +19,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import axios from 'axios'
+//import axios from 'axios'
+import api from '../services/api'
 import { useRouter } from 'vue-router'
 
 const correo = ref('')
@@ -30,7 +31,7 @@ const router = useRouter()
 const login = async () => {
   error.value = ''
   try {
-    const res = await axios.post('http://localhost:3000/api/usuarios/login', {
+    const res = await api.post('http://localhost:3000/api/usuarios/login', {
       correo: correo.value,
       clave: clave.value
     })
